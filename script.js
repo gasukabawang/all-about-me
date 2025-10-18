@@ -14,48 +14,54 @@ document.addEventListener('DOMContentLoaded', function() {
         loadPageContent(pageId);
     }
 
-    function loadPageContent(pageId) {
-        // Remove existing page content except home
-        const existingPages = content.querySelectorAll('.page:not(#home)');
-        existingPages.forEach(page => page.remove());
-        
-        const homePage = document.getElementById('home');
-        if (pageId !== 'home') {
-            homePage.classList.remove('active');
-        }
+function loadPageContent(pageId) {
+    // Remove any previously loaded .page except home
+    const existingPages = content.querySelectorAll('.page:not(#home)');
+    existingPages.forEach(page => page.remove());
 
-        // Load external page content dynamically
-        if (pageId !== 'home') {
-            fetch(`${pageId}.html`)
-                .then(response => {
-                    if (!response.ok) throw new Error('Page not found');
-                    return response.text();
-                })
-                .then(html => {
-                    const temp = document.createElement('div');
-                    temp.innerHTML = html;
+    const homePage = document.getElementById('home');
 
-                    // Take all children, wrap in a .page container if needed
-                    const newPage = document.createElement('div');
-                    newPage.classList.add('page', 'active');
+    if (pageId !== 'home') {
+        homePage.classList.remove('active');
+
+        fetch(`${pageId}.html`)
+            .then(response => {
+                if (!response.ok) throw new Error(`Page ${pageId}.html not found`);
+                return response.text();
+            })
+            .then(html => {
+                const temp = document.createElement('div');
+                temp.innerHTML = html.trim();
+
+                // ✅ Look for a .page element in the fetched HTML
+                let newPage = temp.querySelector('.page');
+                if (!newPage) {
+                    // If none exists, wrap everything in a new .page div
+                    newPage = document.createElement('div');
+                    newPage.classList.add('page');
                     newPage.id = pageId;
                     newPage.innerHTML = temp.innerHTML;
+                }
 
-                    content.appendChild(newPage);
+                // Ensure it has the right ID & active class
+                newPage.id = pageId;
+                newPage.classList.add('active');
 
-                    // ✅ FIX: Generate TOC AFTER new content is inserted
-                    generateTableOfContents(newPage);
-                })
-                .catch(error => {
-                    console.error('Error loading page:', error);
-                    tocContent.innerHTML = '<p>Error loading page content.</p>';
-                });
-        } else {
-            homePage.classList.add('active');
-            // ✅ FIX: Also regenerate TOC for home page if needed
-            generateTableOfContents(homePage);
-        }
+                content.appendChild(newPage);
+
+                // ✅ Generate TOC for this specific page
+                generateTableOfContents(newPage);
+            })
+            .catch(error => {
+                console.error('Error loading page:', error);
+                tocContent.innerHTML = '<p>Error loading page content.</p>';
+            });
+    } else {
+        homePage.classList.add('active');
+        generateTableOfContents(homePage);
     }
+}
+
 
     function generateTableOfContents(pageElement) {
         if (!pageElement) return;
