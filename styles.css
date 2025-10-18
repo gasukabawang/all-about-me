@@ -55,7 +55,7 @@ body {
 
 .content {
     margin-left: 250px;   /* ruang untuk sidebar kiri */
-    margin-right: 250px;  /* ruang untuk TOC kanan */
+    margin-right: 270px;  /* ruang untuk TOC kanan */
     flex: 1;
     padding: 40px;
 }
@@ -145,6 +145,24 @@ body {
 }
 
 .toc a:hover {
+    text-decoration: underline;
+}
+
+#toc-content ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+#toc-content li {
+    padding: 4px 0;
+    cursor: default;
+    transition: color 0.2s;
+}
+
+#toc-content li.active-heading span {
+    color: #007BFF;       /* Warna highlight (biru) */
+    font-weight: bold;
     text-decoration: underline;
 }
 
