@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h2>Pages</h2>
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <main class="content">
+            <div id="home" class="page active">
+                <h1>Welcome to My Website</h1>
+                <div class="page-info">
+                    <p><strong>Author:</strong> John Doe</p>
+                    <p><strong>Published:</strong> December 1, 2023</p>
+                </div>
+                <h2>Introduction</h2>
+                <p>This is a sample website demonstrating a layout with sidebar navigation and table of contents.</p>
+                <img src="https://via.placeholder.com/400x200" alt="Sample image">
+                <h2>Features</h2>
+                <p>Supports links, images, YouTube videos, and subheaders.</p>
+            </div>
+        </main>
+        
+        <aside class="toc">
+            <h2>Table of Contents</h2>
+            <div id="toc-content">
+                <p>Select a page to view its table of contents.</p>
+            </div>
+        </aside>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
