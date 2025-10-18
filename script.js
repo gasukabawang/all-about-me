@@ -84,38 +84,14 @@ function generateTableOfContents(pageId) {
             const headingText = heading.textContent.trim();
             const headingId = `${pageId}-heading-${index}`;
             heading.id = headingId;
-            tocHTML += `<li data-heading-id="${headingId}"><span>${headingText}</span></li>`;
+
+            // ⬇ pakai span, bukan link
+            tocHTML += `<li><span>${headingText}</span></li>`;
         });
         tocHTML += '</ul>';
     }
     
     tocContent.innerHTML = tocHTML;
-
-    // Jalankan observer setelah ToC dibuat
-    observeHeadings(headings);
-}
-
-function observeHeadings(headings) {
-    const tocItems = tocContent.querySelectorAll('li');
-    const options = {
-        root: null,
-        rootMargin: '0px 0px -60% 0px', // aktif saat heading masuk area tengah
-        threshold: 0
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            const targetId = entry.target.id;
-            const tocItem = tocContent.querySelector(`li[data-heading-id="${targetId}"]`);
-            
-            if (entry.isIntersecting) {
-                tocItems.forEach(item => item.classList.remove('active-heading'));
-                if (tocItem) tocItem.classList.add('active-heading');
-            }
-        });
-    }, options);
-
-    headings.forEach(heading => observer.observe(heading));
 }
 
     sidebarLinks.forEach(link => {

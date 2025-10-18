@@ -138,15 +138,18 @@ body {
     margin-bottom: 8px;
 }
 
-.toc a {
+.toc span {
     color: #3498db;
     text-decoration: none;
     font-size: 14px;
+    cursor: default;          /* pointer mouse jadi default, bukan tangan */
+    display: inline-block;
 }
 
-.toc a:hover {
-    text-decoration: underline;
+.toc span:hover {
+    text-decoration: none;    /* tidak ada efek hover */
 }
+
 
 #toc-content ul {
     list-style-type: none;
