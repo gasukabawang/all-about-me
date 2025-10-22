@@ -69,14 +69,14 @@ body {
 }
 
 .page h1 {
-    color: #481386;
+    color: #4E56C0;
     margin-bottom: 20px;
-    border-bottom: 2px solid #a671ef;
+    border-bottom: 2px solid #383d79;
     padding-bottom: 10px;
 }
 
 .page h2 {
-    color: #57278d;
+    color: #5258a0;
     margin: 30px 0 15px 0;
 }
 
@@ -85,7 +85,7 @@ body {
     padding: 15px;
     border-radius: 5px;
     margin-bottom: 30px;
-    border-left: 4px solid #b25bff;
+    border-left: 4px solid #9166c3;
 }
 
 .page img {
@@ -104,7 +104,7 @@ body {
 }
 
 .page a {
-    color: #3498db;
+    color: #D78FEE;
     text-decoration: none;
     font-weight: bold;
 }
@@ -139,7 +139,7 @@ body {
 }
 
 .toc span {
-    color: #3498db;
+    color: #D78FEE;
     text-decoration: none;
     font-size: 14px;
     cursor: default;          /* pointer mouse jadi default, bukan tangan */
@@ -164,7 +164,7 @@ body {
 }
 
 #toc-content li.active-heading span {
-    color: #8735ba;       /* Warna highlight (biru) */
+    color: #9B5DE0;       /* Warna highlight (biru) */
     font-weight: bold;
     text-decoration: underline;
 }
