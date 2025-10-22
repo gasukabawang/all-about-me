@@ -17,7 +17,7 @@ body {
 
 .sidebar {
     width: 250px;
-    background-color: #2c3e50;
+    background-color: #9158b0;
     color: white;
     padding: 20px;
     position: fixed;
@@ -28,7 +28,7 @@ body {
 .sidebar h2 {
     margin-bottom: 20px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #34495e;
+    border-bottom: 2px solid #652d96;
 }
 
 .sidebar ul {
@@ -50,7 +50,7 @@ body {
 
 .sidebar a:hover,
 .sidebar a.active {
-    background-color: #34495e;
+    background-color: #795994;
 }
 
 .content {
@@ -69,14 +69,14 @@ body {
 }
 
 .page h1 {
-    color: #2c3e50;
+    color: #481386;
     margin-bottom: 20px;
-    border-bottom: 2px solid #3498db;
+    border-bottom: 2px solid #a671ef;
     padding-bottom: 10px;
 }
 
 .page h2 {
-    color: #34495e;
+    color: #57278d;
     margin: 30px 0 15px 0;
 }
 
@@ -85,7 +85,7 @@ body {
     padding: 15px;
     border-radius: 5px;
     margin-bottom: 30px;
-    border-left: 4px solid #3498db;
+    border-left: 4px solid #b25bff;
 }
 
 .page img {
@@ -126,7 +126,7 @@ body {
 
 .toc h2 {
     margin-bottom: 20px;
-    color: #2c3e50;
+    color: #481386;
 }
 
 .toc ul {
@@ -164,7 +164,7 @@ body {
 }
 
 #toc-content li.active-heading span {
-    color: #007BFF;       /* Warna highlight (biru) */
+    color: #8735ba;       /* Warna highlight (biru) */
     font-weight: bold;
     text-decoration: underline;
 }
